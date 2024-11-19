@@ -60,7 +60,7 @@ export const createEvent = async ({
     return JSON.parse(JSON.stringify(newEvent));
   } catch (error) {
     console.log("Error in createEvent:", error); // Improved error logging
-    handleError(error);
+    // handleError(error);
   }
 };
 
