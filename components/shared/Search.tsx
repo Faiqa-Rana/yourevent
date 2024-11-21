@@ -39,18 +39,21 @@ const Search = ({
   }, [query, searchParams, router]);
 
   return (
-    <div className="relative flex items-center min-h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+    <div className="relative flex items-center min-h-[54px] w-full rounded-full bg-white px-4 py-2 shadow-lg transition duration-300 focus-within:ring-2 focus-within:ring-purple-500">
+      {/* Search Icon */}
       <Image
         src="/assets/icons/search.svg"
         alt="search"
-        width={24}
-        height={24}
+        width={20}
+        height={20}
+        className="opacity-70"
       />
+      {/* Search Input */}
       <Input
         type="text"
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
-        className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+        className="ml-3 w-full border-0 bg-transparent text-gray-700 placeholder-gray-400 focus:outline-none"
       />
     </div>
   );

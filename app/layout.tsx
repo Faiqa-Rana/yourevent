@@ -1,36 +1,33 @@
 import type { Metadata } from "next";
-import  poppins from "next/font/local";
-import "./globals.css";
-import { ClerkProvider} from "@clerk/nextjs";
+import { Poppins } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const Poppins = poppins({
-  src: "./fonts/GeistVF.woff",
+import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
-  weight: "400 500 600 700",
 });
 
 export const metadata: Metadata = {
   title: "YourEvent",
-  description: "It is a platform for events",
-  icons:'/assets/images/logo.svg'
+  description: "YourEvent is a platform for event management.",
+  icons: {
+    icon: "/assets/images/logo.svg",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${Poppins.variable} ${Poppins.variable} antialiased`}
-      >
-        
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={poppins.variable}>{children}</body>
+      </html>
     </ClerkProvider>
   );
 }
-

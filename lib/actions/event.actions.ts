@@ -36,10 +36,10 @@ export const createEvent = async ({
 }: CreateEventParams) => {
   try {
     await connectToDatabase();
-
-    if (!mongoose.Types.ObjectId.isValid(userId)) {
-      throw new Error(`Invalid User ID: ${userId}`);
-    }
+    console.log("Logging the User ID: -----------: ", userId);
+    // if (!mongoose.Types.ObjectId.isValid(userId)) {
+    //   throw new Error(`Invalid User ID: ${userId}`);
+    // }
 
     const organizer = await User.findById(userId);
     if (!organizer) {
