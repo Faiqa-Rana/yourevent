@@ -148,7 +148,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                   <Textarea
                     placeholder="Description"
                     {...field}
-                    className="textarea rounded-2xl"
+                    className="textarea rounded-xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -160,7 +160,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             control={form.control}
             name="imageUrl"
             render={({ field }) => (
-              <FormItem className="w-full flex items-center justify-center">
+              <FormItem className="w-full border rounded-xl flex items-center justify-center">
                 <FormControl>
                   <FileUploader
                     onFieldChange={field.onChange}
@@ -181,18 +181,18 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 px-4 py-2">
+                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 py-6">
                     <Image
                       src="/assets/icons/location-grey.svg"
                       alt="location"
                       width={24}
                       height={24}
-                      className="absolute left-4"
+                      className="absolute left-2"
                     />
                     <Input
                       placeholder="Event location or Online"
                       {...field}
-                      className="input-field pl-10"
+                      className="input-field pl-10 !py-5"
                     />
                   </div>
                 </FormControl>
@@ -209,7 +209,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 px-4 py-2">
+                  <div className="relative border rounded-lg flex items-center h-[54px] w-full bg-grey-50 px-2">
                     <Image
                       src="/assets/icons/calendar.svg"
                       alt="calendar"
@@ -241,7 +241,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 px-4 py-2">
+                  <div className="relative border rounded-lg flex items-center h-[54px] w-full bg-grey-50 px-2 py-2">
                     <Image
                       src="/assets/icons/calendar.svg"
                       alt="calendar"
@@ -275,7 +275,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 px-4 py-2">
+                  <div className="relative border rounded-lg flex items-center h-[54px] w-full bg-grey-50 px-2 py-2">
                     <Image
                       src="/assets/icons/dollar.svg"
                       alt="dollar"
@@ -287,7 +287,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                       type="number"
                       placeholder="Price"
                       {...field}
-                      className="input-field"
+                      className="input-field !border-none outline-none focus:ring-0"
                     />
                     <FormField
                       control={form.control}
@@ -295,7 +295,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <div className=" flex items-center">
+                            <div className=" flex items-center ml-2">
                               <label
                                 htmlFor="isFree"
                                 className="whitespace-nowrap pr-3 leading-none peer-disabled:cursor-not-allowed
@@ -327,18 +327,18 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <div className="relative flex items-center h-[54px] w-full bg-grey-50 px-4 py-2">
+                  <div className="relative flex items-center h-[54px] w-full bg-grey-50">
                     <Image
                       src="/assets/icons/link.svg"
                       alt="link"
                       width={24}
                       height={24}
-                      className="absolute left-4"
+                      className="absolute left-2"
                     />
                     <Input
                       placeholder="URL"
                       {...field}
-                      className="input-field pl-10"
+                      className="input-field pl-10 h-full"
                     />
                   </div>
                 </FormControl>
@@ -350,8 +350,9 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
         <Button
           type="submit"
-          className="bg-purple-900 button col-span-2 w-full rounded-full"
+          className="w-full py-6 mt-8"
           size="lg"
+          variant="pink"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? "Submitting...." : `${type} Event`}
