@@ -9,7 +9,7 @@ const HeroSection = () => {
       <img
         src="/images/hero-bg.jpg"
         alt="hero-bg"
-        className="h-[650px] md:h-[850px] relative after:absolute after:inset-0 after:bg-black w-full rounded-lg object-cover"
+        className="h-[750px] md:h-[850px] relative after:absolute after:inset-0 after:bg-black w-full rounded-lg object-cover"
       />
       <div className="absolute px-10 left-0 right-0 top-1/2 -translate-y-1/2">
         <Container>
@@ -19,7 +19,7 @@ const HeroSection = () => {
               <br /> Your Events, Elevated by <br />
               <span className="bg-pink-500">Our Platform!</span>
             </h1>
-            <p className="text-lg md:text-2xl mt-6 xl:w-1/2">
+            <p className="text-lg md:text-2xl mt-8 xl:w-2/3">
               Create unforgettable events with ease. Our platform simplifies
               hosting, connecting, and celebrating—so you can focus on what
               matters most.
@@ -30,7 +30,7 @@ const HeroSection = () => {
                 <Link href="/login">
                   <Button
                     variant="pink"
-                    className="rounded-full w-full sm:w-max px-12 !py-6 font-medium text-lg"
+                    className="rounded-full w-full sm:w-max px-12 !py-6  text-base"
                   >
                     Create Event
                   </Button>
@@ -40,7 +40,7 @@ const HeroSection = () => {
               <a href="#events">
                 <Button
                   variant="secondary"
-                  className="rounded-full px-12 !py-6 font-medium text-lg"
+                  className="rounded-full w-full sm:w-max px-12 !py-6 text-base"
                 >
                   View Events
                 </Button>

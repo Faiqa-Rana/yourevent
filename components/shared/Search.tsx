@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
@@ -39,8 +38,7 @@ const Search = ({
   }, [query, searchParams, router]);
 
   return (
-    <div className="relative flex items-center min-h-[54px] w-full rounded-full bg-white px-4 py-2 shadow-lg transition duration-300 focus-within:ring-2 focus-within:ring-purple-500">
-      {/* Search Icon */}
+    <div className="relative flex items-center border w-full rounded-md bg-white px-2 py-0 transition duration-300 focus-within:border focus-within:border-black">
       <Image
         src="/assets/icons/search.svg"
         alt="search"
@@ -48,12 +46,12 @@ const Search = ({
         height={20}
         className="opacity-70"
       />
-      {/* Search Input */}
+
       <Input
         type="text"
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
-        className="ml-3 w-full border-0 bg-transparent text-gray-700 placeholder-gray-400 focus:outline-none"
+        className="ml-0 !ring-0 w-full !py-0 !shadow-none !border-none !outline-none bg-transparent text-gray-700 placeholder-gray-400 !focus:outline-none"
       />
     </div>
   );

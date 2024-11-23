@@ -25,8 +25,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scroll-smooth">
-        <body className={poppins.variable}>{children}</body>
+      <html lang="en" className={`${poppins.variable} scroll-smooth`}>
+        <body>{children}</body>
       </html>
     </ClerkProvider>
   );

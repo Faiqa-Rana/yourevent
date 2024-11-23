@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="py-4 sticky top-0 bg-white z-50">
+    <header className="py-4 sticky top-0 shadow-md bg-white z-50">
       <Container>
         <div className="flex relative items-center justify-between">
           <Link

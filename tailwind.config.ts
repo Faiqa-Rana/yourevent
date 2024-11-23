@@ -1,7 +1,4 @@
 import type { Config } from "tailwindcss";
-import { withUt } from "uploadthing/tw";
-
-//
 
 const config: Config = {
   darkMode: ["class"],
@@ -11,6 +8,9 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      poppins: ["var(--font-poppins)"],
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",

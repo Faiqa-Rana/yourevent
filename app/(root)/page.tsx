@@ -22,10 +22,11 @@ export default async function Home({ searchParams }: SearchParamProps) {
   return (
     <>
       <HeroSection />
-      <section id="events" className="py-12 scroll-mt-28">
+
+      <section id="events" className="py-20 scroll-mt-28">
         <Container>
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-3xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold">
               Trusted by Thousands of Events
             </h2>
             <p className="text-gray-600 text-lg mt-2">
@@ -34,7 +35,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6 md:flex-row">
+          <div className="flex flex-col mb-14  border rounded-md p-8 gap-6 md:flex-row">
             <Search />
             <CategoryFilter />
           </div>
