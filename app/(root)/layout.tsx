@@ -1,19 +1,18 @@
 import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
+import Navbar from "@/components/shared/Navbar";
 
 export default function RootLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    return (
-      <div className="flex h-screen flex-col">
-        <main className="flex-1">
-            <Header />
-          {children}
-          
-        </main>
-        <Footer />
-        </div>
-    );
-  }
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <div className="flex h-screen flex-col">
+      <main className="flex-1">
+        <Navbar />
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
+}
