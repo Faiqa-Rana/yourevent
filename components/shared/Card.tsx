@@ -44,7 +44,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
       <div className="flex  flex-col gap-3 p-6 py-8 md:gap-4">
         <div className="flex items-center justify-between">
-          <p className="w-min text-pink-500 capitalize text-sm">
+          <p className="text-pink-500 capitalize text-sm">
             {event.category.name}
           </p>
           {!hidePrice && (
