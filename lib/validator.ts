@@ -9,16 +9,30 @@ export const eventFormSchema = z
     imageUrl: z.string().url(),
     startDateTime: z.date({ required_error: "Start date is required" }),
     endDateTime: z.date({ required_error: "End date is required" }),
-    price: z.string().refine(
-      (val) => {
-        const parsed = Number(val); // Convert the string to a number
-        return !isNaN(parsed) && parsed >= 1; // Check if it's a valid non-negative number
-      },
-      {
-        message: "Price must be a non-negative number", // Custom error message
-      }
-    ),
+    //     price: z.string().refine(
+    //       (val) => {
+    //         const parsed = Number(val); // Convert the string to a number
+    //         return !isNaN(parsed) && parsed >= 1; // Check if it's a valid non-negative number
+    //       },
+    //       {
+    //         message: "Price must be a non-negative number", // Custom error message
+    //       }
+    //     ),
+    //     isFree: z.boolean(),
+    //     url: z.string().url("URL must be valid"),
+    //   })
     isFree: z.boolean(),
+    price: z
+      .string()
+      .optional()
+      .refine(
+        (val) => {
+          if (val === undefined || val === "") return true; // Allow empty when isFree is true
+          const parsed = Number(val);
+          return !isNaN(parsed) && parsed >= 1; // Validate number >= 1 when provided
+        },
+        { message: "Price must be a positive number or empty for free events" }
+      ),
     url: z.string().url("URL must be valid"),
   })
   .superRefine((data, ctx) => {
