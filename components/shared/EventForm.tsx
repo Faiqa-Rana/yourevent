@@ -50,31 +50,40 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     resolver: zodResolver(eventFormSchema),
     defaultValues: intialValues,
   });
-
   const onSubmit = async (values: z.infer<typeof eventFormSchema>) => {
     let uploadedImageUrl = values.imageUrl;
 
+    // Handle file uploads if any
     if (files.length > 0) {
       const uploadedImages = await startUpload(files);
       if (!uploadedImages) return;
       uploadedImageUrl = uploadedImages[0].url;
     }
 
+    // Ensure `price` is always a string
+    const formattedValues = {
+      ...values,
+      price: values.isFree ? "0" : values.price || "0", // Default to "0" if free
+      imageUrl: uploadedImageUrl,
+    };
+
     if (type === "Create") {
       try {
         const newEvent = await createEvent({
-          event: { ...values, imageUrl: uploadedImageUrl },
+          event: formattedValues,
           userId,
           path: "/profile",
         });
+
         if (newEvent) {
           form.reset();
           router.push(`/events/${newEvent._id}`);
         }
       } catch (error) {
-        console.log(error);
+        console.error("Error creating event:", error);
       }
     }
+
     if (type === "Update") {
       if (!eventId) {
         router.back();
@@ -84,7 +93,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
       try {
         const updatedEvent = await updateEvent({
           userId,
-          event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+          event: { ...formattedValues, _id: eventId },
           path: `/events/${eventId}`,
         });
 
@@ -93,7 +102,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           router.push(`/events/${updatedEvent._id}`);
         }
       } catch (error) {
-        console.log(error);
+        console.error("Error updating event:", error);
       }
     }
   };
