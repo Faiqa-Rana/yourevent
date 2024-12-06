@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
 import HeroSection from "@/components/shared/HeroSection";
-import Link from "next/link";
+
 import Search from "@/components/shared/Search";
 import Container from "@/components/shared/Container";
 
@@ -59,16 +58,14 @@ export default async function Home({ searchParams }: SearchParamProps) {
             Ready to Make Your Event Unforgettable?
           </h3>
           <p className="text-lg">
-            Join our platform and connect with the best event hosts and
-            organizers today!
+            Manage your events effortlessly with our powerful web app! Create
+            events by adding all the essential details, including titles,
+            categories, descriptions, images, locations, prices, and dates.
+            Track and manage your organized events and purchased tickets easily
+            through your personalized profile page. Enjoy secure and seamless
+            payment processing powered by Stripe, ensuring your transactions are
+            fast and reliable.
           </p>
-          <Button
-            size="lg"
-            asChild
-            className="bg-yellow-400 text-purple-900 font-bold py-3 px-6 rounded-lg hover:bg-yellow-500 w-full sm:w-fit mx-auto"
-          >
-            <Link href="/Signup">Get Started</Link>
-          </Button>
         </div>
       </section>
     </>
