@@ -53,20 +53,22 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
       {/* Call-to-Action Section */}
       <section className="bg-purple-700 text-white py-12">
-        <div className="wrapper text-center flex flex-col gap-6">
-          <h3 className="text-3xl font-bold">
-            Ready to Make Your Event Unforgettable?
-          </h3>
-          <p className="text-lg">
-            Manage your events effortlessly with our powerful web app! Create
-            events by adding all the essential details, including titles,
-            categories, descriptions, images, locations, prices, and dates.
-            Track and manage your organized events and purchased tickets easily
-            through your personalized profile page. Enjoy secure and seamless
-            payment processing powered by Stripe, ensuring your transactions are
-            fast and reliable.
-          </p>
-        </div>
+        <Container>
+          <div className="text-center flex flex-col gap-6">
+            <h3 className="text-3xl font-bold">
+              Ready to Make Your Event Unforgettable?
+            </h3>
+            <p className="text-lg">
+              Manage your events effortlessly with our powerful web app! Create
+              events by adding all the essential details, including titles,
+              categories, descriptions, images, locations, prices, and dates.
+              Track and manage your organized events and purchased tickets
+              easily through your personalized profile page. Enjoy secure and
+              seamless payment processing powered by Stripe, ensuring your
+              transactions are fast and reliable.
+            </p>
+          </div>
+        </Container>
       </section>
     </>
   );
