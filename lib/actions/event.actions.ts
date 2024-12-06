@@ -72,14 +72,14 @@ export async function updateEvent({ userId, event, path }: UpdateEventParams) {
   try {
     await connectToDatabase();
 
-    const eventToUpdate = await Event.findById(event._id);
+    const eventToUpdate = await Event.findById(event?._id);
     if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
       throw new Error("Unauthorized or event not found");
     }
 
     const updatedEvent = await Event.findByIdAndUpdate(
-      event._id,
-      { ...event, category: event.categoryId },
+      event?._id,
+      { ...event, category: event?.categoryId },
       { new: true }
     );
     revalidatePath(path);
@@ -121,7 +121,7 @@ export async function getAllEvents({
     const conditions = {
       $and: [
         titleCondition,
-        categoryCondition ? { category: categoryCondition._id } : {},
+        categoryCondition ? { category: categoryCondition?._id } : {},
       ],
     };
 
